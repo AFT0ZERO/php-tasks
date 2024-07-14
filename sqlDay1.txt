@@ -1,0 +1,184 @@
+task 1 
+A database is an organized collection of structured information, or data,
+typically stored electronically in a computer system. 
+A database is usually controlled by a database management system (DBMS).
+Together, the data and the DBMS, along with the applications that are associated with them, 
+are referred to as a database system, often shortened to just database.
+
+
+task 1.2
+Structured query language (SQL) is a programming language for storing and processing information 
+in a relational database. A relational database stores information in tabular form,
+ with rows and columns representing different data attributes and the various relationships between the data values.
+ You can use SQL statements to store, update, remove, search, and retrieve information from the database.
+ You can also use SQL to maintain and optimize database performance.
+
+
+ task 2
+ Relational Databases (SQL)	
+ -Tables with rows and columns	
+ -Fixed schema; predefined tables and columns
+ -Vertically scalable (adding more power to the existing machine)
+ -MySQL, PostgreSQL, Oracle Database
+
+ Non-relational Databases (NoSQL)
+ -Flexible structures: documents, key-value pairs, graphs, wide-columns
+ -Dynamic schema; flexible and can vary over time
+ -Horizontally scalable (adding more machines to the pool)
+ -MongoDB, Cassandra, Redis
+
+task 2.1
+MySQL is an open-source relational database management system (RDBMS)
+ developed by Oracle Corporation.  MySQL is often employed in web applications
+ and is a central component of the LAMP stack (Linux, Apache, MySQL, PHP/Perl/Python).
+ -Open-Source:
+ -Scalability
+ -Reliability
+ -Cross-Platform Support
+
+
+ task 3
+ TINYINT(size)
+ A very small integer. Signed range is 
+ from -128 to 127. Unsigned range is from 0 to 255. 
+ The size parameter specifies the maximum display 
+ width (which is 255)
+
+ BOOL
+ Zero is considered as false, nonzero values are considered as true.
+
+ INT(size)
+ A medium integer. Signed range is from -2147483648 to 2147483647.
+  Unsigned range is from 0 to 4294967295.
+
+FLOAT(size, d)
+A floating point number. The total number of digits is specified in size. The number of 
+digits after the decimal point is specified in the d parameter. 
+
+
+task 4
+CHAR(size)
+A FIXED length string (can contain letters, numbers, and special characters).
+ The size parameter specifies the column length in characters 
+
+ VARCHAR(size)
+ A VARIABLE length string
+
+ TEXT(size)	
+ Holds a string with a maximum length of 65,535 bytes
+
+ TINYTEXT
+ Holds a string with a maximum length of 255 characters
+
+
+ task 5
+ DATE
+ A date. Format: YYYY-MM-DD. The supported range is from 
+ '1000-01-01' to '9999-12-31'
+
+ DATETIME
+ A date and time combination. Format: YYYY-MM-DD hh:mm:ss.
+
+TIME(fsp)	
+A time. Format: hh:mm:ss.
+
+
+task 6
+The PRIMARY KEY constraint uniquely identifies each record in a table.
+Primary keys must contain UNIQUE values, and cannot contain NULL values.
+A table can have only ONE primary key; and in the table, this primary
+ key can consist of single or multiple columns (fields).
+
+
+task 7
+ The NULL constraint allows a column to have null values. A null value represents missing or unknown data.
+ The NOT NULL constraint ensures that a column cannot have null values. Every row must 
+ contain a valid (non-null) value for columns with this 
+
+ ```
+ CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NULL,
+    department VARCHAR(50) NULL
+);
+
+ ```
+
+```
+CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    department VARCHAR(50) NOT NULL
+);
+```
+
+task 8
+AUTO_INCREMENT is a keyword used in SQL to define a column in a table where 
+the value is automatically incremented with each new row inserted. This is typically
+ used for primary keys to ensure a unique identifier for each record.
+
+```
+CREATE TABLE employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    department VARCHAR(50) NOT NULL
+);
+```
+
+task 9
+CREATE DATABASE StudentDB;
+
+task 10
+CREATE TABLE Students  (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100),
+    enrollment_date DATE
+);
+
+task 11 
+INSERT INTO Students(name,email,enrollment_date) VALUE
+('koko','koko@gmail.com','2024,7,14');
+
+UPDATE Students
+SET email = 'koko_updated@gmail.com'
+WHERE id = 1;
+
+DELETE FROM Students
+WHERE id = 1;
+
+
+task 12
+use StudentDB ;
+
+task 13
+CREATE DATABASE PracticeDB;
+
+USE PracticeDB ;
+
+CREATE TABLE Employees   (
+    emp_id INT AUTO_INCREMENT PRIMARY KEY,
+    emp_name VARCHAR(100) NOT NULL,
+    emp_position VARCHAR(100),
+    hire_date DATE
+);
+
+INSERT INTO Employees (emp_name, emp_position, hire_date)
+VALUES 
+('John Doe', 'Software Engineer', '2020-01-15'),
+('Jane Smith', 'Project Manager', '2019-03-22'),
+('Emily Johnson', 'UX Designer', '2018-07-30');
+
+
+UPDATE Employees
+SET emp_position = 'Senior Software Engineer'
+WHERE emp_id = 2;
+
+DELETE FROM Employees
+WHERE emp_name = 'Jane Smith';
+
+
+
+
+
+
