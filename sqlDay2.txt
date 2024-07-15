@@ -1,0 +1,114 @@
+task 1
+SELECT * FROM employees;
+
+task 2
+SELECT name , salary FROM employees;
+
+task 3
+SELECT * FROM employees 
+WHERE salary >50000;
+
+task 4 
+SELECT * FROM employees
+WHERE name LIKE 'j%';
+
+task 5
+SELECT * FROM employees
+WHERE depattments_id in (1,2,3);
+
+task 6
+SELECT * FROM employees
+ORDER BY hire_date DESC;
+
+task 7
+SELECT COUNT(*) FROM employees ;
+
+task 8
+SELECT SUM(salary) FROM employees ;
+
+task 9
+SELECT AVG(salary) FROM employees ;
+
+task 10
+SELECT MIN(salary) FROM employees ;
+SELECT MAX(salary) FROM employees ;
+
+task 11
+SELECT * FROM employees 
+WHERE salary >50000;
+
+SELECT AVG(salary),salary FROM employees 
+GROUP BY salary
+HAVING AVG(salary)>50000;
+
+task 12
+CREATE TABLE employees  
+( employee_id INT PRIMARY KEY AUTO_INCREMENT,
+ employee_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE employee_details  
+(employee_details_id INT PRIMARY KEY AUTO_INCREMENT ,
+ email VARCHAR(255) NOT NULL,
+ age INT ,
+ emp_id INT  UNIQUE,
+  CONSTRAINT FK_employee FOREIGN KEY (emp_id)
+   REFERENCES employees(employee_id)
+ );
+
+task 13
+CREATE TABLE employees  
+( employee_id INT PRIMARY KEY AUTO_INCREMENT,
+ employee_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE departments  
+(departments_id INT PRIMARY KEY AUTO_INCREMENT ,
+ departments_name VARCHAR(255) NOT NULL,
+ emp_id INT ,
+  CONSTRAINT FK_employee FOREIGN KEY (emp_id)
+   REFERENCES employees(employee_id)
+ );
+
+task 14
+CREATE TABLE students  
+( student_id INT PRIMARY KEY AUTO_INCREMENT,
+ student_name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE courses  
+(course_id INT PRIMARY KEY AUTO_INCREMENT ,
+ course_name VARCHAR(255) NOT NULL
+ );
+ 
+ CREATE TABLE student_courses(
+     student_id INT,
+     course_id INT,
+     PRIMARY KEY(course_id,student_id),
+     FOREIGN KEY (course_id) REFERENCES courses(course_id),
+     FOREIGN KEY (student_id) REFERENCES students(student_id)
+ );
+
+
+
+task 15
+ALTER TABLE employees
+ADD CONSTRAINT fk_depID
+FOREIGN KEY (fk_depID) REFERENCES departments(dep_id);
+
+task 16
+ALTER TABLE employees
+ALTER COLUMN name VARCHAR(30) NOT NULL;
+
+task 17
+ALTER TABLE employees
+ADD CONSTRAINT User_email UNIQUE (email);
+
+
+task 18 
+ALTER TABLE employees
+ADD CONSTRAINT checksalary CHECK (salary > 0);
+
+task 19
+ALTER TABLE employees
+ALTER COLUMN status SET DEFAULT 'Active'; 
